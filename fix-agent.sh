@@ -1,10 +1,11 @@
 #!/bin/sh
 
-# fix-agent
+# fix-agent.sh
 #
 # Allows you to connect to your ssh-agent 
 #
-# Run fix-agent from a shell inside screen after you have reconnected
+# source fix-agent 
+# from a shell inside screen after you have reconnected
 #
 # From http://www.tolaris.com/2011/07/12/reconnecting-your-ssh-agent-to-a-detached-gnu-screen-session/
 #
