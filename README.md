@@ -19,3 +19,12 @@ dotfiles that a Linux user might want in their home or
 cd
 ln -sb ~/bin-hacks/.gitignore_global 
 ```
+
+**.bashrc** Some nice things if you use bash, mostly from Debian
+To install
+```
+cd
+ln -sb ~/bin-hacks/.bashrc
+```
+Also delete ~/.bash_profile and ~/.profile IF they exist.
+
