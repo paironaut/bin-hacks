@@ -8,6 +8,9 @@ case $- in
       *) return;;
 esac
 
+# Load RVM into a shell session *as a function* for Ruby Version and Gemset management
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -34,6 +37,9 @@ shopt -s checkwinsize
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
+
+# Source the prompt command to for git (from the git distribution)
+source ~/bin-hacks/git-prompt.sh
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
