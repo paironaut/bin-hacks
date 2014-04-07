@@ -1,0 +1,25 @@
+# global git ignore file
+# Set your ~/.gitconfig to use the global ignore file , for example like this
+# [core]
+# 	excludesfile = /home/david2/.gitignore_global
+
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+*hardcopy.*
+*screenlog.*
+*emacs.desktop*
+
+# ignore ruby version management stuff
+.rvmrc
+.ruby-version
+.ruby-gemset
+.rbenv
+.rbenv-gemsets
+
+# text editor temp and backup files
+\#*#
+\.#*
+*.*~
+*~
+

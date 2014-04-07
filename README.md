@@ -1,8 +1,9 @@
 bin-hacks
 =========
 
-Gathered from around the internet, these are short executables for a
-Linux user's ~/bin directory, too small to re-distribute separately.
+Gathered from around the internet, these are short executables and 
+dotfiles that a Linux user might want in their home or
+ ~/bin directory
 
 **fix-agent.sh** If you reconnect to a screen session, source
   fix-agent.sh to reach your ssh-agent again, for passwordless login.
@@ -10,3 +11,11 @@ Linux user's ~/bin directory, too small to re-distribute separately.
 **prompt-vars.sh** Source this to customize your shell prompt. Uses
   git-prompt.sh from the git distribution, to summarize the git status
   when you are in a git repo.
+
+**.gitignore_global** If you use emacs, rvm or rbenv, you probably want git
+  to ignore the patterns on this list in almost every project.
+  Install like this
+  ```bash
+cd
+ln -sb ~/bin-hacks/.gitignore_global 
+```
