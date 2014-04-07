@@ -67,3 +67,4 @@ wget http://www.vim.org/scripts/download_script.php?src_id=16429
 mv d* rails.zip
 unzip rails.zip
 rm -rf rails.zip
+set -v
