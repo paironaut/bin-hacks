@@ -38,7 +38,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Source the prompt command to for git (from the git distribution)
+# Source the prompt command for git (from the git distribution)
 source ~/bin-hacks/git-prompt.sh
 
 # set a fancy prompt (non-color, unless we know we "want" color)

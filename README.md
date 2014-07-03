@@ -17,7 +17,12 @@ dotfiles that a Linux user might want in their home or
   Install like this
   ```bash
 cd
-ln -sb ~/bin-hacks/.gitignore_global 
+ln -sb ~/bin-hacks/.gitignore_global
+```
+Set your ~/.gitconfig to use the global ignore file , for example like this
+```
+[core]
+	excludesfile = /home/david2/.gitignore_global
 ```
 
 **.bashrc** Some nice things if you use bash, mostly from Debian
