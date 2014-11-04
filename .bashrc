@@ -115,5 +115,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+PATH=$PATH:/usr/local/racket/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/local/bin # node.js path
+PATH=$PATH:$HOME/workspace/sml/bin # Standard ML of New Jersey
