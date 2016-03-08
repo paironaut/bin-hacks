@@ -115,6 +115,19 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# git completion from homebrew git on Mac OS X
+if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+    . /usr/local/etc/bash_completion.d/git-completion.bash
+fi
+
+EDITOR=emacsclient
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/local/bin # node.js path
+envPATH=/usr/local/bin:$PATH # OS X homebrew command line binaries
 eval "$(rbenv init -)"
+
+#simpleweb simple
+if [ -f /Users/dcorking/.simple/bin/simple ]; then
+    eval "$(/Users/dcorking/.simple/bin/simple init -)"
+fi
