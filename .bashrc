@@ -115,6 +115,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# SimpleCov for Rails projects whose spec_helper recognizes this
+export COVERAGE=true
+
 PATH=$PATH:/usr/local/racket/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/local/bin # node.js path
