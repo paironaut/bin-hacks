@@ -1,0 +1,7 @@
+Rails:
+  Enabled: true
+
+Style/TrailingCommaInArguments:
+  # If `comma`, the cop requires a comma after the last argument, but only for
+  # parenthesized method calls where each argument is on its own line.
+  EnforcedStyleForMultiline: comma
