@@ -136,3 +136,9 @@ alias rm='rm -i'
 export EDITOR=emacsclient
 
 eval "$(rbenv init -)"
+
+export QMAKE=/usr/bin/qmake-qt4
+alias cdcv='cd ~/workspace/curve'
+alias cdch='cd ~/workspace/chippin'
+alias be='bundle exec'
+alias bes='bundle exec spring'
