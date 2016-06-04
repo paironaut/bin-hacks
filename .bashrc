@@ -119,13 +119,11 @@ fi
 export COVERAGE=true
 
 PATH=$PATH:/usr/local/racket/bin
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/local/bin # node.js path
-PATH=$PATH:$HOME/workspace/sml/bin # Standard ML of New Jersey
-
 PATH=$PATH:$HOME/.local/bin:$HOME/workspace/sml/bin:$HOME/bin:$HOME/.meteor
-PATH="/usr/local/heroku/bin:$PATH"
-PATH="$HOME/.rbenv/bin:$PATH"
+PATH=/usr/local/heroku/bin:$PATH
+PATH=$HOME/.rbenv/bin:$PATH
 
 export PATH
 
