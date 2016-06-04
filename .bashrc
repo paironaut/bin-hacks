@@ -9,7 +9,7 @@ case $- in
 esac
 
 # Load RVM into a shell session *as a function* for Ruby Version and Gemset management
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
