@@ -128,7 +128,7 @@ PATH=/usr/local/bin:$PATH # OS X homebrew command line binaries
 eval "$(rbenv init -)"
 
 # OPAM configuration for OCaml (Mac OS X only)
-if [-f /Users/dcorking/.opam/opam-init/init.sh]; then
+if [ -f /Users/dcorking/.opam/opam-init/init.sh ]; then
     . /Users/dcorking/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 fi
 
