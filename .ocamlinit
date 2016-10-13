@@ -9,3 +9,5 @@ let () =
 #require "core.top";;
 #require "core.syntax";;
 
+(* handy here, but don't forget to put this into source files I am sharing *)
+open Core.Std
