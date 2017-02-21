@@ -136,3 +136,6 @@ fi
 if [ -f /Users/dcorking/.simple/bin/simple ]; then
     eval "$(/Users/dcorking/.simple/bin/simple init -)"
 fi
+
+# ansible
+export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.vault-pass
