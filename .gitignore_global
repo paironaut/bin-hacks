@@ -75,3 +75,8 @@ Thumbs.db
 .env
 .env.test.local
 .env.development.local
+
+# Dependency directories#
+#########################
+node_modules/
+jspm_packages/

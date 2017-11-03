@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+executed: # ~/.bashrcb by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -9,7 +9,7 @@ case $- in
 esac
 
 # Load RVM into a shell session *as a function* for Ruby Version and Gemset management
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -169,3 +169,13 @@ fi
 
 # ansible
 export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.vault-pass
+
+# php71
+export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+
+# rust package manager
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
