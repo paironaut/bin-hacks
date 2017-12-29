@@ -187,3 +187,9 @@ alias emacs=Emacs
 
 # python Mac only
 export PATH="/Users/dcorking/Library/Python/3.6/bin:$PATH"
+
+# iTerm2
+if [ -n "$ITERM_PROFILE" ]
+then
+    test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+fi
