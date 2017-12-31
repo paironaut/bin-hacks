@@ -29,8 +29,8 @@ Set your ~/.gitconfig to use the global ignore file , for example like this
 To install and replace your own shell startup files
 ```
 cd
-ln -sb ~/bin-hacks/.bashrc
-ln -sb ~/bin-hacks/.bash_profile
-ln -sb ~/bin-hacks/.profile
+ln -si ~/bin-hacks/.bashrc
+ln -si ~/bin-hacks/.bash_profile
+ln -si ~/bin-hacks/.profile
 ```
 
