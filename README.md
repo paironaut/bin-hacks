@@ -25,11 +25,12 @@ Set your ~/.gitconfig to use the global ignore file , for example like this
 	excludesfile = /home/david2/.gitignore_global
 ```
 
-**.bashrc** Some nice things if you use bash, mostly from Debian
-To install
+**.bashrc** Some nice things if you use bash, mostly from Debian.
+To install and replace your own shell startup files
 ```
 cd
 ln -sb ~/bin-hacks/.bashrc
+ln -sb ~/bin-hacks/.bash_profile
+ln -sb ~/bin-hacks/.profile
 ```
-Also delete ~/.bash_profile and ~/.profile IF they exist.
 
