@@ -162,16 +162,17 @@ if [ -f /Users/dcorking/.opam/opam-init/init.sh ]; then
     . /Users/dcorking/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 fi
 
-#simpleweb simple (Mac OS X only)
-if [ -f /Users/dcorking/.simple/bin/simple ]; then
-    eval "$(/Users/dcorking/.simple/bin/simple init -)"
+# simpleweb simple
+if [ -f $HOME/.simple/bin/simple ]; then
+    eval "$($HOME/.simple/bin/simple init -)"
 fi
 
 # ansible
 export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.vault-pass
 
 # php71
-export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+export PATH
 
 # rust package manager
 export PATH="$HOME/.cargo/bin:$PATH"
