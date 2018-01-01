@@ -1,7 +1,7 @@
 bin-hacks
 =========
 
-Gathered from around the internet, these are short executables and 
+Gathered from around the internet, these are short executables and
 dotfiles that a Linux user might want in their home or
  ~/bin directory
 
@@ -15,9 +15,9 @@ dotfiles that a Linux user might want in their home or
 **.gitignore_global** If you use emacs, rvm or rbenv, you probably want git
   to ignore the patterns on this list in almost every project.
   Install like this
-  ```bash
+```bash
 cd
-ln -sb ~/bin-hacks/.gitignore_global
+ln -si ~/bin-hacks/.gitignore_global
 ```
 Set your ~/.gitconfig to use the global ignore file , for example like this
 ```
@@ -27,7 +27,7 @@ Set your ~/.gitconfig to use the global ignore file , for example like this
 
 **.bashrc** Some nice things if you use bash, mostly from Debian.
 To install and replace your own shell startup files
-```
+```bash
 cd
 ln -si ~/bin-hacks/.bashrc
 ln -si ~/bin-hacks/.bash_profile
