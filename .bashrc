@@ -153,14 +153,19 @@ fi
 
 export EDITOR=emacsclient
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/local/bin # node.js path
-PATH=/usr/local/bin:$PATH # OS X homebrew command line binaries
-eval "$(rbenv init -)"
+[ -d "$HOME/.rvm/bin" ] && PATH=$PATH:$HOME/.rvm/bin
 
-# OPAM configuration for OCaml (Mac OS X only)
-if [ -f /Users/dcorking/.opam/opam-init/init.sh ]; then
-    . /Users/dcorking/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+[ -d "$HOME/local/bin" ] && PATH=$PATH:$HOME/local/bin # node.js path
+
+PATH=/usr/local/bin:$PATH # e.g. OS X homebrew command line binaries
+
+# initialize rbenv
+[ hash rbenv 2>/dev/null ] && eval "$(rbenv init -)"
+
+# OPAM configuration for OCaml
+if [ -f "$HOME/.opam/opam-init/init.sh" ]; then
+    # shellcheck $HOME=/dev/null
+    source "$HOME/.opam/opam-init/init.sh" > /dev/null 2> /dev/null || true
 fi
 
 # simpleweb simple
@@ -171,27 +176,37 @@ fi
 # ansible
 export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.vault-pass
 
-# php71
-PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
-export PATH
+# php71 from homebrew
+if [ hash brew 2>/dev/null ]; then
+    PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+    export PATH
+fi
 
 # rust package manager
-export PATH="$HOME/.cargo/bin:$PATH"
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
 
 # Node JS Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [ -d "$HOME/.nvm" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
 
 # Emacs Mac only
-export PATH="/Applications/Emacs.app/Contents/MacOS/Emacs:$PATH"
-alias emacs=Emacs
+if [ -d "/Applications/Emacs.app" ]; then
+    export PATH="/Applications/Emacs.app/Contents/MacOS/Emacs:$PATH"
+    alias emacs=Emacs
+fi
 
-# python Mac only
-export PATH="/Users/dcorking/Library/Python/3.6/bin:$PATH"
+# local python
+if [ -d "$HOME/Library/Python/3.6" ]; then
+    export PATH="$HOME/Library/Python/3.6/bin:$PATH"
+fi
 
 # iTerm2
-if [ -n "$ITERM_PROFILE" ]
-then
+if [ -n "$ITERM_PROFILE" ]; then
     test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 fi
+
