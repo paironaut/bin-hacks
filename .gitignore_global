@@ -22,6 +22,7 @@
 *.*~
 *~
 
+<<<<<<< HEAD
 # Compiled source #
 ###################
 *.com
@@ -81,3 +82,7 @@ Thumbs.db
 #########################
 node_modules/
 jspm_packages/
+=======
+*/rdoc
+.vagrant/
+>>>>>>> dcorking

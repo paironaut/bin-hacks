@@ -146,10 +146,19 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# SimpleCov for Rails projects whose spec_helper recognizes this
+export COVERAGE=true
+
+[[ -d /usr/local/racket/bin ]] && PATH=$PATH:/usr/local/racket/bin
+
 # git completion from homebrew git on Mac OS X
 if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     . /usr/local/etc/bash_completion.d/git-completion.bash
 fi
+
+ulimit -c unlimited
+
+alias rm='rm -i'
 
 export EDITOR=emacsclient
 
@@ -160,7 +169,13 @@ export EDITOR=emacsclient
 PATH=/usr/local/bin:$PATH # e.g. OS X homebrew command line binaries
 
 # initialize rbenv
+[[ -d "$HOME/.rbenv/bin" ]] && PATH=$HOME/.rbenv/bin:$PATH
 [ hash rbenv 2>/dev/null ] && eval "$(rbenv init -)"
+
+PATH=$PATH:$HOME/.local/bin:$HOME/workspace/sml/bin:$HOME/bin:$HOME/.meteor
+PATH=/usr/local/heroku/bin:$PATH
+
+export PATH
 
 # OPAM configuration for OCaml
 if [ -f "$HOME/.opam/opam-init/init.sh" ]; then
@@ -210,3 +225,7 @@ if [ -n "$ITERM_PROFILE" ]; then
     test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 fi
 
+export QMAKE=/usr/bin/qmake-qt4
+
+alias be='bundle exec'
+alias bes='bundle exec spring'
