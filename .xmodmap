@@ -1,0 +1,25 @@
+! xmodmap ~/bin-hacks/.xmodmap
+! http://www.emacswiki.org/emacs/MovingTheCtrlKey
+! Swap Control_L and Caps_Lock
+!
+remove Lock = Caps_Lock
+remove Control = Control_L
+keysym Control_L = Caps_Lock
+keysym Caps_Lock = Control_L
+add Lock = Caps_Lock
+add Control = Control_L
+add mod1 = Alt_L Meta_L
+!
+! Swap Alt_L and Shift_L
+!
+remove mod1 = Alt_L Meta_L
+remove shift = Shift_L
+keysym Alt_L = Shift_L
+keysym Shift_L = Alt_L Meta_L
+add mod1 = Alt_L Meta_L
+add shift = Shift_L
+!
+! Make Alt_Gr into a meta key
+!
+remove mod5 = ISO_Level3_Shift
+add mod1 = ISO_Level3_Shift
