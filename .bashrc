@@ -229,3 +229,15 @@ export QMAKE=/usr/bin/qmake-qt4
 
 alias be='bundle exec'
 alias bes='bundle exec spring'
+
+# Digital Ocean
+test -f "${HOME}/Library/Keychains/DO.keychain-db" && api_credentials_keychain_path="${HOME}/Library/Keychains/DO.keychain-db"
+# a function to inject DO API token into environment from macOS keychain
+#
+# to run a command like `./scripts/launch` with the DO token
+# environment variables available use
+# `with_do_credentials ./scripts/launch`.
+function with_do_credentials {
+  local DIGITALOCEAN_ACCESS_TOKEN=$(security find-generic-password -s DO -w $api_credentials_keychain_path)
+  DIGITALOCEAN_API_TOKEN=$DIGITALOCEAN_ACCESS_TOKEN DO_API_TOKEN=$DIGITALOCEAN_ACCESS_TOKEN DIGITALOCEAN_TOKEN=$DIGITALOCEAN_ACCESS_TOKEN DIGITALOCEAN_ACCESS_TOKEN=$DIGITALOCEAN_ACCESS_TOKEN "$@"
+}
