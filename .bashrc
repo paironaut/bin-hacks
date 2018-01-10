@@ -169,8 +169,7 @@ export EDITOR=emacsclient
 PATH=/usr/local/bin:$PATH # e.g. OS X homebrew command line binaries
 
 # initialize rbenv
-[[ -d "$HOME/.rbenv/bin" ]] && PATH=$HOME/.rbenv/bin:$PATH
-[ hash rbenv 2>/dev/null ] && eval "$(rbenv init -)"
+eval "$(rbenv init -)"
 
 PATH=$PATH:$HOME/.local/bin:$HOME/workspace/sml/bin:$HOME/bin:$HOME/.meteor
 PATH=/usr/local/heroku/bin:$PATH
