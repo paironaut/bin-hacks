@@ -174,8 +174,6 @@ eval "$(rbenv init -)"
 PATH=$PATH:$HOME/.local/bin:$HOME/workspace/sml/bin:$HOME/bin:$HOME/.meteor
 PATH=/usr/local/heroku/bin:$PATH
 
-export PATH
-
 # OPAM configuration for OCaml
 if [ -f "$HOME/.opam/opam-init/init.sh" ]; then
     # shellcheck $HOME=/dev/null
@@ -191,14 +189,14 @@ fi
 export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.vault-pass
 
 # php71 from homebrew
+# FIXME: check this works
 if [ hash brew 2>/dev/null ]; then
     PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
-    export PATH
 fi
 
 # rust package manager
 if [ -d "$HOME/.cargo/bin" ]; then
-    export PATH="$HOME/.cargo/bin:$PATH"
+    PATH="$PATH:$HOME/.cargo/bin"
 fi
 
 # Node JS Version Manager
@@ -210,13 +208,13 @@ fi
 
 # Emacs Mac only
 if [ -d "/Applications/Emacs.app" ]; then
-    export PATH="/Applications/Emacs.app/Contents/MacOS/Emacs:$PATH"
+    PATH="/Applications/Emacs.app/Contents/MacOS/Emacs:$PATH"
     alias emacs=Emacs
 fi
 
 # local python
 if [ -d "$HOME/Library/Python/3.6" ]; then
-    export PATH="$HOME/Library/Python/3.6/bin:$PATH"
+    PATH="$PATH:$HOME/Library/Python/3.6/bin"
 fi
 
 # iTerm2
