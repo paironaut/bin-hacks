@@ -217,8 +217,8 @@ if [ -d "$HOME/Library/Python/3.6" ]; then
     PATH="$PATH:$HOME/Library/Python/3.6/bin"
 fi
 
-# iTerm2
-if [ -n "$ITERM_PROFILE" ]; then
+# iTerm2 (unless Emacs)
+if [ -n "$ITERM_PROFILE" ] && test "$TERM" != "eterm-color"; then
     test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 fi
 
