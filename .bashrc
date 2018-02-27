@@ -206,12 +206,6 @@ if [ -d "$HOME/.nvm" ]; then
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-# Emacs Mac only
-if [ -d "/Applications/Emacs.app" ]; then
-    PATH="/Applications/Emacs.app/Contents/MacOS/Emacs:$PATH"
-    alias emacs=Emacs
-fi
-
 # local python
 if [ -d "$HOME/Library/Python/3.6" ]; then
     PATH="$PATH:$HOME/Library/Python/3.6/bin"
