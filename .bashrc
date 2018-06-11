@@ -238,3 +238,21 @@ function with_do_credentials {
   local DIGITALOCEAN_ACCESS_TOKEN=$(security find-generic-password -s DO -w $api_credentials_keychain_path)
   DIGITALOCEAN_API_TOKEN=$DIGITALOCEAN_ACCESS_TOKEN DO_API_TOKEN=$DIGITALOCEAN_ACCESS_TOKEN DIGITALOCEAN_TOKEN=$DIGITALOCEAN_ACCESS_TOKEN DIGITALOCEAN_ACCESS_TOKEN=$DIGITALOCEAN_ACCESS_TOKEN "$@"
 }
+
+# KeePass
+# install from https://keepass.info/download.html
+#
+# only for macOS
+# install mono from http://www.mono-project.com/download/stable/
+if [[ $OSTYPE == darwin* ]]; then
+    function keepass {
+        (
+            cd ~/workspace/KeePass-2.39.1/
+            nohup mono --arch=32 KeePass.exe &
+        )
+    }
+fi
+
+function kp {
+    keepass
+}
