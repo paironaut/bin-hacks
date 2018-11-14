@@ -246,7 +246,7 @@ function with_do_credentials {
 if [[ $OSTYPE == darwin* ]]; then
     function keepass {
         (
-            cd ~/workspace/KeePass-2.39.1/
+            cd ~/workspace/KeePass-2.40/
             nohup mono --arch=32 KeePass.exe &
         )
     }
