@@ -11,7 +11,6 @@
 
 # ignore ruby version management stuff
 .rvmrc
-.ruby-version
 .ruby-gemset
 .rbenv
 .rbenv-gemsets
