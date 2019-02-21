@@ -221,8 +221,6 @@ if [ -n "$ITERM_PROFILE" ] && test "$TERM" != "eterm-color"; then
     test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 fi
 
-PATH="$PATH:/Users/dcorking/workspace/zeetta/zeetta-node/bin"
-
 export QMAKE=/usr/bin/qmake-qt4
 
 alias be='bundle exec'
