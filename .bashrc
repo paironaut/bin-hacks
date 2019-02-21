@@ -255,3 +255,6 @@ fi
 function kp {
     keepass
 }
+
+# pipenv to make local virtualenvs
+export PIPENV_VENV_IN_PROJECT=1
