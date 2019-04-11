@@ -185,6 +185,11 @@ if [ -f $HOME/.simple/bin/simple ]; then
     eval "$($HOME/.simple/bin/simple init -)"
 fi
 
+# VS Code
+if [ -f "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ]; then
+    PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
+fi
+
 # ansible
 export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/.vault-pass
 
