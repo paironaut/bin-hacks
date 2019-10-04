@@ -167,6 +167,7 @@ export EDITOR=emacsclient
 [ -d "$HOME/local/bin" ] && PATH=$PATH:$HOME/local/bin # node.js path
 
 PATH=/usr/local/bin:$PATH # e.g. OS X homebrew command line binaries
+PATH=/usr/local/sbin:$PATH # Homebrew sudo binaries
 
 # initialize rbenv
 eval "$(rbenv init -)"
