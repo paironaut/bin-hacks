@@ -262,5 +262,9 @@ function kp {
     keepass
 }
 
+# binaries for AWS EB CLI
+# https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install-advanced.html
+export PATH="$PATH:/Users/dcorking/.ebcli-virtual-env/executables"
+
 # pipenv to make local virtualenvs
 export PIPENV_VENV_IN_PROJECT=1
