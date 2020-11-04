@@ -80,7 +80,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -275,3 +275,21 @@ export PATH="$PATH:/Users/dcorking/.ebcli-virtual-env/executables"
 
 # pipenv to make local virtualenvs
 export PIPENV_VENV_IN_PROJECT=1
+
+## direnv used on every interactive prompt
+if hash direnv >/dev/null
+then
+    eval "$(direnv hook bash)"
+else
+    echo 'I suggest: apt install direnv'
+fi
+
+## nix package management
+# this isn't well tested yet
+source $HOME/.nix-profile/etc/profile.d/nix.sh
+
+## local customizations
+if [ -f $HOME/bin-hacks/local-bashrc ]
+then
+    source $HOME/bin-hacks/local-bashrc
+fi
