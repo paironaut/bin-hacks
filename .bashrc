@@ -286,7 +286,11 @@ fi
 
 ## nix package management
 # this isn't well tested yet
-source $HOME/.nix-profile/etc/profile.d/nix.sh
+if [ -f $HOME/.nix-profile/etc/profile.d/nix.sh]
+then
+    source $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
+
 
 ## local customizations
 if [ -f $HOME/bin-hacks/local-bashrc ]
