@@ -291,6 +291,10 @@ then
     source $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
 
+if [ -f $HOME/.iterm2_shell_integration.bash ]
+then
+   source $HOME/.iterm2_shell_integration.bash
+fi
 
 ## local customizations
 if [ -f $HOME/bin-hacks/local-bashrc ]
