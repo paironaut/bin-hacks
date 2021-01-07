@@ -294,6 +294,10 @@ then
     source $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
 
+## Heroku
+# autocompletion (by Heroku; run `heroku autocomplete` to configure)
+HEROKU_AC_BASH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
+
 if [ -f $HOME/.iterm2_shell_integration.bash ]
 then
     source $HOME/.iterm2_shell_integration.bash
