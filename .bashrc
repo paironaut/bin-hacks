@@ -273,7 +273,7 @@ function kp {
 # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install-advanced.html
 if [ -d $HOME/.ebcli-virtual-env/executables ]
 then
-    export PATH="$PATH:/Users/dcorking/.ebcli-virtual-env/executables"
+    export PATH="$PATH:$HOME/.ebcli-virtual-env/executables"
 fi
 
 # pipenv to make local virtualenvs
