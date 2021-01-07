@@ -284,7 +284,7 @@ if which -s direnv && hash direnv >/dev/null
 then
     eval "$(direnv hook bash)"
 else
-    echo 'I suggest: apt install direnv'
+    echo 'I suggest: apt install direnv (or brew install direnv)'
 fi
 
 ## nix package management
