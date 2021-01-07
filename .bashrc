@@ -286,14 +286,14 @@ fi
 
 ## nix package management
 # this isn't well tested yet
-if [ -f $HOME/.nix-profile/etc/profile.d/nix.sh]
+if [ -f $HOME/.nix-profile/etc/profile.d/nix.sh ]
 then
     source $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
 
 if [ -f $HOME/.iterm2_shell_integration.bash ]
 then
-   source $HOME/.iterm2_shell_integration.bash
+    source $HOME/.iterm2_shell_integration.bash
 fi
 
 ## local customizations
