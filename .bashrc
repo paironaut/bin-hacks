@@ -271,13 +271,16 @@ function kp {
 
 # binaries for AWS EB CLI
 # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install-advanced.html
-export PATH="$PATH:/Users/dcorking/.ebcli-virtual-env/executables"
+if [ -d $HOME/.ebcli-virtual-env/executables ]
+then
+    export PATH="$PATH:/Users/dcorking/.ebcli-virtual-env/executables"
+fi
 
 # pipenv to make local virtualenvs
 export PIPENV_VENV_IN_PROJECT=1
 
 ## direnv used on every interactive prompt
-if hash direnv >/dev/null
+if which -s direnv && hash direnv >/dev/null
 then
     eval "$(direnv hook bash)"
 else
