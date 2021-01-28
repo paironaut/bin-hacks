@@ -298,6 +298,12 @@ fi
 # autocompletion (by Heroku; run `heroku autocomplete` to configure)
 HEROKU_AC_BASH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
 
+# put Homebrew OpenSSL first in PATH
+if [ -d /usr/local/opt/openssl@1.1/bin ]
+then
+    export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+fi
+
 ## Homebrew
 # autocompletions, from https://docs.brew.sh/Shell-Completion
 if type brew &>/dev/null; then
