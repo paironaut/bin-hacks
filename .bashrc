@@ -179,7 +179,7 @@ PATH=/usr/local/sbin:$PATH # Homebrew sudo binaries
 # initialize rbenv
 eval "$(rbenv init -)"
 
-PATH=$PATH:$HOME/.local/bin:$HOME/workspace/sml/bin:$HOME/bin:$HOME/.meteor
+PATH=$PATH:$HOME/.local/bin:$HOME/workspace/sml/bin:$HOME/bin
 PATH=/usr/local/heroku/bin:$PATH
 
 # OPAM configuration for OCaml
