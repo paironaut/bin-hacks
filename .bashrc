@@ -298,13 +298,30 @@ fi
 # autocompletion (by Heroku; run `heroku autocomplete` to configure)
 HEROKU_AC_BASH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
 
+## Homebrew
+
+# these openssl configs adapted from brew info openssl
+
 # put Homebrew OpenSSL first in PATH
 if [ -d /usr/local/opt/openssl@1.1/bin ]
 then
     export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 fi
 
-## Homebrew
+# enable compilers and pkg-config to find Homebrew OpenSSL
+if [[ -d /usr/local/opt/openssl/lib ]] && [[ -d /usr/local/opt/openssl/include ]]
+then
+   export LDFLAGS="-L/usr/local/opt/openssl/lib"
+   export CPPFLAGS="-I/usr/local/opt/openssl/include"
+   export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+fi
+
+# ruby-build with homebrew's openssl (suggested by brew info ruby-build)
+if command -v brew &> /dev/null
+then
+    export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+fi
+
 # autocompletions, from https://docs.brew.sh/Shell-Completion
 if type brew &>/dev/null; then
   HOMEBREW_PREFIX="$(brew --prefix)"
@@ -317,6 +334,7 @@ if type brew &>/dev/null; then
   fi
 fi
 
+# iTerm 2
 if [ -f $HOME/.iterm2_shell_integration.bash ]
 then
     source $HOME/.iterm2_shell_integration.bash
