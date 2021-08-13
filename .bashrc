@@ -303,14 +303,12 @@ HEROKU_AC_BASH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/bash_setup &&
 # these openssl configs adapted from brew info openssl
 
 # put Homebrew OpenSSL first in PATH
-if [ -d /usr/local/opt/openssl@1.1/bin ]
-then
+if [ -d /usr/local/opt/openssl@1.1/bin ]; then
     export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 fi
 
 # enable compilers and pkg-config to find Homebrew OpenSSL
-if [[ -d /usr/local/opt/openssl/lib ]] && [[ -d /usr/local/opt/openssl/include ]]
-then
+if [[ -d /usr/local/opt/openssl/lib && -d /usr/local/opt/openssl/include ]]; then
    export LDFLAGS="-L/usr/local/opt/openssl/lib"
    export CPPFLAGS="-I/usr/local/opt/openssl/include"
    export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
