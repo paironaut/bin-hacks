@@ -53,6 +53,10 @@ HISTFILESIZE=2000
 # a patch or pull request.
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo -e $$\\t$USER\\t$HOSTNAME\\tscreen $WINDOW\\t`date +%D%t%T%t%Y%t%s`\\t$PWD"$(history 1)" >> ~/.bash_eternal_history'
 
+##
+## Interactive/terminal configs derived from Debian
+##
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -68,9 +72,6 @@ shopt -s checkwinsize
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
-
-# Source the prompt command for git (from the git distribution)
-source ~/bin-hacks/git-prompt.sh
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -153,15 +154,33 @@ if ! shopt -oq posix; then
   fi
 fi
 
+##
+## end of Debian-derived config
+##
+
 # SimpleCov for Rails projects whose spec_helper recognizes this
 export COVERAGE=true
 
 [[ -d /usr/local/racket/bin ]] && PATH=$PATH:/usr/local/racket/bin
 
+##
+## git
+##
+
+# Source the prompt command for git (from the git distribution)
+source ~/bin-hacks/git-prompt.sh
+
 # git completion from homebrew git on Mac OS X
 if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
     . /usr/local/etc/bash_completion.d/git-completion.bash
 fi
+
+# cd to git root
+function cdr {
+    cd $(git rev-parse --show-toplevel)
+}
+
+##
 
 ulimit -c unlimited
 
