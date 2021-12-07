@@ -8,4 +8,5 @@ then
     # shellcheck source=/dev/null
     source "$HOME/.bashrc"
 fi
-if [ -e /home/david1/.nix-profile/etc/profile.d/nix.sh ]; then . /home/david1/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then source "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi # added by Nix installer
