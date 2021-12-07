@@ -1,3 +1,8 @@
+if [ -f "$HOME/.profile" ]
+then
+   source "$HOME/.profile"
+fi
+
 if [ -f "$HOME/.bashrc" ]
 then
     # shellcheck source=/dev/null
