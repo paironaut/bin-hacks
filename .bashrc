@@ -381,7 +381,16 @@ _ssh_completions()
 }
 complete -F _ssh_completions ssh
 ###################################################################################
-## local customizations
+
+###########
+# aliases #
+###########
+alias cdbh='cd $HOME/bin-hacks'
+alias cdde='cd $HOME/.emacs.d' # dotemacs
+
+#########################
+## local customizations #
+#########################
 if [ -f $HOME/bin-hacks/local-bashrc ]
 then
     source $HOME/bin-hacks/local-bashrc
