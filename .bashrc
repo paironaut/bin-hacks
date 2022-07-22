@@ -337,10 +337,10 @@ if [[ -d /usr/local/opt/openssl/lib && -d /usr/local/opt/openssl/include ]]; the
    export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 fi
 
-# ruby-build with homebrew's openssl (suggested by brew info ruby-build)
+# ruby-build with homebrew's openssl & readline (suggested by brew info ruby-build)
 if command -v brew &> /dev/null
 then
-    export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+    export RUBY_CONFIGURE_OPTS=$RUBY_CONFIGURE_OPTS" --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl@1.1)"
 fi
 
 # autocompletions, from https://docs.brew.sh/Shell-Completion
