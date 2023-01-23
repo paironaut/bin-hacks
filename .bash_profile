@@ -10,3 +10,8 @@ then
 fi
 
 if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then source "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi # added by Nix installer
+
+# asdf
+if [ -f /usr/local/opt/asdf/libexec/asdf.sh ]; then
+    source /usr/local/opt/asdf/libexec/asdf.sh
+fi
