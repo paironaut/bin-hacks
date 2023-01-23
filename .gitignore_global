@@ -83,3 +83,7 @@ jspm_packages/
 */rdoc
 .vagrant/
 .vscode/
+
+# LibreOffice #
+###############
+.~lock.*
