@@ -21,8 +21,7 @@ ln -si ~/bin-hacks/.gitignore_global
 ```
 Set your ~/.gitconfig to use the global ignore file , for example like this
 ```
-[core]
-	excludesfile = /home/david2/.gitignore_global
+git config --global core.excludesfile /home/david1/.gitignore_global
 ```
 
 **.bashrc** Some nice things if you use bash, mostly from Debian.
