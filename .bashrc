@@ -198,9 +198,6 @@ export EDITOR=emacsclient
 
 [ -d "$HOME/local/bin" ] && PATH=$PATH:$HOME/local/bin # node.js path
 
-PATH=/usr/local/bin:$PATH # e.g. OS X homebrew command line binaries
-PATH=/usr/local/sbin:$PATH # Homebrew sudo binaries
-
 # initialize rbenv
 eval "$(rbenv init -)"
 
@@ -327,10 +324,27 @@ fi
 # autocompletion (by Heroku; run `heroku autocomplete` to configure)
 HEROKU_AC_BASH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
 
-## Homebrew
+##############
+## Homebrew ##
+##############
+
+# TODO: tidy the homebrew section so that it does the same on linux as
+# on macos
+
+PATH=/usr/local/bin:$PATH # e.g. OS X homebrew command line binaries
+PATH=/usr/local/sbin:$PATH # Homebrew sudo binaries
+
+# for linux
+if [ -d /home/linuxbrew/.linuxbrew ]; then
+    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+    export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
+    export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
+    export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
+    export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
+    export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
+fi
 
 # these openssl configs adapted from brew info openssl
-
 # put Homebrew OpenSSL first in PATH
 if [ -d /usr/local/opt/openssl@1.1/bin ]; then
     export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
