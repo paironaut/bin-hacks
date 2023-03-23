@@ -309,7 +309,7 @@ fi
 export PIPENV_VENV_IN_PROJECT=1
 
 ## direnv used on every interactive prompt
-if which -s direnv && hash direnv >/dev/null
+if type direnv && hash direnv >/dev/null
 then
     eval "$(direnv hook bash)"
 else
