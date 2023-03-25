@@ -396,6 +396,19 @@ _ssh_completions()
 complete -F _ssh_completions ssh
 ###################################################################################
 
+######################################
+# asdf version manager from homebrew #
+######################################
+if [ -f $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh ]
+then
+    source $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+fi
+
+if [ -f $HOMEBREW_PREFIX/etc/bash_completion.d/asdf.bash ]
+then
+    source $HOMEBREW_PREFIX/etc/bash_completion.d/asdf.bash
+fi
+
 ###########
 # aliases #
 ###########
