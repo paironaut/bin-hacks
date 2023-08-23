@@ -375,6 +375,14 @@ then
     source $HOME/.iterm2_shell_integration.bash
 fi
 
+# open man pages in Emacs https://emacs.stackexchange.com/a/59587
+macsman() {
+    # TODO: check emacs is running and if not, run the native man
+    emacsclient --eval "(man \"$1\")"
+}
+
+alias man=macsman
+
 ###################################################################################
 # complete host names in ssh from the .ssh/config file
 ###################################################################################
