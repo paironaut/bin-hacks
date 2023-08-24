@@ -423,6 +423,12 @@ fi
 alias cdbh='cd $HOME/bin-hacks'
 alias cdde='cd $HOME/.emacs.d' # dotemacs
 
+# brew install lorem. Workaround for homebrew python3
+if type lorem && hash lorem >/dev/null
+then
+  alias lorem='python3 $(which lorem)'
+fi
+
 #########################
 ## local customizations #
 #########################
