@@ -204,11 +204,6 @@ if [ -f "$HOME/.opam/opam-init/init.sh" ]; then
     source "$HOME/.opam/opam-init/init.sh" > /dev/null 2> /dev/null || true
 fi
 
-# simpleweb simple
-if [ -f $HOME/.simple/bin/simple ]; then
-    eval "$($HOME/.simple/bin/simple init -)"
-fi
-
 # VS Code
 if [ -f "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" ]; then
     PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin/"
