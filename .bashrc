@@ -364,6 +364,9 @@ if type brew &>/dev/null; then
   fi
 fi
 
+# don't update homebrew packages when I install another brew
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # iTerm 2
 if [ -f $HOME/.iterm2_shell_integration.bash ]
 then
