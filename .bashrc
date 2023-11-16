@@ -161,6 +161,9 @@ fi
 # SimpleCov for Rails projects whose spec_helper recognizes this
 export COVERAGE=true
 
+# Rails Spring always seems to cause trouble, rather than speed up development as is intended
+export DISABLE_SPRING=1
+
 [[ -d /usr/local/racket/bin ]] && PATH=$PATH:/usr/local/racket/bin
 
 ##
