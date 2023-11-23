@@ -298,7 +298,7 @@ fi
 export PIPENV_VENV_IN_PROJECT=1
 
 ## direnv used on every interactive prompt
-if type direnv && hash direnv >/dev/null
+if type direnv >/dev/null && hash direnv >/dev/null
 then
     eval "$(direnv hook bash)"
 else
@@ -425,10 +425,13 @@ alias cdbh='cd $HOME/bin-hacks'
 alias cdde='cd $HOME/.emacs.d' # dotemacs
 
 # brew install lorem. Workaround for homebrew python3
-if type lorem && hash lorem >/dev/null
+if type lorem >/dev/null && hash lorem >/dev/null
 then
   alias lorem='python3 $(which lorem)'
 fi
+
+# motd noise https://scriptingosx.com/2019/06/moving-to-zsh/
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 #########################
 ## local customizations #
