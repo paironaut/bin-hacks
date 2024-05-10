@@ -383,10 +383,9 @@ then
     source $HOME/.iterm2_shell_integration.bash
 fi
 
-# open man pages in Emacs https://emacs.stackexchange.com/a/59587
+# open man pages in Emacs or man https://emacs.stackexchange.com/a/59587
 macsman() {
-    # TODO: check emacs is running and if not, run the native man
-    emacsclient --eval "(man \"$1\")"
+    emacsclient --eval "(man \"$1\")" --alternate-editor man $1
 }
 
 alias man=macsman
