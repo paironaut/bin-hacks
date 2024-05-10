@@ -385,7 +385,7 @@ fi
 
 # open man pages in Emacs or man https://emacs.stackexchange.com/a/59587
 macsman() {
-    emacsclient --eval "(man \"$1\")" --alternate-editor man $1
+    emacsclient --eval "(man \"$1\")" --alternate-editor "man $1"
 }
 
 alias man=macsman
