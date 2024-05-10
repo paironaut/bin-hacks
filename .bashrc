@@ -370,12 +370,12 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # emacsclient
 if type brew &>/dev/null; then
-    export EDITOR="$(brew --prefix)/bin/emacsclient --alternate-editor $(brew --prefix)/bin/mg"
+    export EDITOR=$(brew --prefix)/bin/emacsclient
+    export ALTERNATE_EDITOR=$(brew --prefix)/bin/mg
 else
-    export EDITOR='emacsclient --alternate-editor mg'
+    export EDITOR=emacsclient
+    export ALTERNATE_EDITOR=mg
 fi
-
-export ALTERNATE_EDITOR=mg
 
 # iTerm 2
 if [ -f $HOME/.iterm2_shell_integration.bash ]
