@@ -72,7 +72,7 @@ Thumbs.db
 
 # Local environment files #
 ###########################
-.env
+# .env we usually commit this so don't globally ignore
 .env.test.local
 .env.development.local
 
