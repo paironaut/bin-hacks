@@ -4,7 +4,7 @@
 # 	excludesfile = /home/david2/.gitignore_global
 
 
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# See https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring for more about ignoring files.
 
 *hardcopy.*
 *screenlog.*
