@@ -87,3 +87,7 @@ jspm_packages/
 # LibreOffice #
 ###############
 .~lock.*
+
+# My personal local files #
+###############
+CORKY*
