@@ -411,6 +411,20 @@ _ssh_completions()
 complete -F _ssh_completions ssh
 ###################################################################################
 
+########
+# java #
+########
+# convenience function to switch JDK java version on macos, from archived project https://github.com/AdoptOpenJDK/homebrew-openjdk
+# exports JAVA_HOME based on the output of ./java_home, for example
+#
+# /usr/libexec$ ./java_home
+# /Library/Java/JavaVirtualMachines/temurin-22.jdk/Contents/Home
+jdk() {
+        version=$1
+        export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+        java -version
+}
+
 ######################################
 # asdf version manager from homebrew #
 ######################################
