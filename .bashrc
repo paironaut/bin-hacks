@@ -245,11 +245,6 @@ if [ -d "/usr/local/anaconda3/bin" ]; then
     PATH="/usr/local/anaconda3/bin:$PATH"
 fi
 
-# iTerm2 (unless Emacs)
-if [ -n "$ITERM_PROFILE" ] && test "$TERM" != "eterm-color"; then
-    test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-fi
-
 export QMAKE=/usr/bin/qmake-qt4
 
 alias be='bundle exec'
@@ -377,10 +372,16 @@ else
     export ALTERNATE_EDITOR=mg
 fi
 
-# iTerm 2
-if [ -f $HOME/.iterm2_shell_integration.bash ]
+# iTerm2 (unless Emacs)
+if test "$TERM" != "eterm-color"; then
+    test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+fi
+
+# eat Emacs terminal emulator https://codeberg.org/akib/emacs-eat
+# specifically https://codeberg.org/akib/emacs-eat/src/branch/master/integration/bash
+if [ -n "$EAT_SHELL_INTEGRATION_DIR" ]
 then
-    source $HOME/.iterm2_shell_integration.bash
+    source "$EAT_SHELL_INTEGRATION_DIR/bash"
 fi
 
 # open man pages in Emacs or man https://emacs.stackexchange.com/a/59587
