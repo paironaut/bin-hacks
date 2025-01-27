@@ -369,11 +369,10 @@ fi
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 # emacsclient
+export EDITOR=emacsclient
 if type brew &>/dev/null; then
-    export EDITOR=$(brew --prefix)/bin/emacsclient
     export ALTERNATE_EDITOR=$(brew --prefix)/bin/mg
 else
-    export EDITOR=emacsclient
     export ALTERNATE_EDITOR=mg
 fi
 
