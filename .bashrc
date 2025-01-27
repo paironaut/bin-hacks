@@ -345,7 +345,7 @@ fi
 # ruby-build with homebrew's openssl & readline (suggested by brew info ruby-build)
 if command -v brew &> /dev/null
 then
-    export RUBY_CONFIGURE_OPTS=$RUBY_CONFIGURE_OPTS" --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl@1.1)"
+    export RUBY_CONFIGURE_OPTS=$RUBY_CONFIGURE_OPTS" --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl@3)"
 fi
 
 # autocompletions, from https://docs.brew.sh/Shell-Completion
