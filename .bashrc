@@ -316,8 +316,8 @@ HEROKU_AC_BASH_SETUP_PATH=$HOME/Library/Caches/heroku/autocomplete/bash_setup &&
 # TODO: tidy the homebrew section so that it does the same on linux as
 # on macos
 
-PATH=/usr/local/bin:$PATH # e.g. OS X homebrew command line binaries
-PATH=/usr/local/sbin:$PATH # Homebrew sudo binaries
+PATH=/usr/local/bin:$PATH # e.g. OS X homebrew command line binaries (Intel)
+PATH=/usr/local/sbin:$PATH # Homebrew sudo binaries (Intel)
 
 # for linux
 if [ -d /home/linuxbrew/.linuxbrew ]; then
@@ -327,6 +327,11 @@ if [ -d /home/linuxbrew/.linuxbrew ]; then
     export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
     export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
     export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
+fi
+
+# for Apple Silicon macOS
+if [ -d /opt/homebrew/bin ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # these openssl configs adapted from brew info openssl
