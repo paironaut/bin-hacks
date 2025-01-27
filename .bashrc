@@ -444,6 +444,11 @@ then
     source $HOMEBREW_PREFIX/etc/bash_completion.d/asdf.bash
 fi
 
+## ngrok completions
+if command -v ngrok &>/dev/null; then
+    eval "$(ngrok completion)"
+fi
+
 ###########
 # aliases #
 ###########
