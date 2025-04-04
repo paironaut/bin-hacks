@@ -334,39 +334,41 @@ if [ -d /opt/homebrew/bin ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# these openssl configs adapted from brew info openssl
-# put Homebrew OpenSSL first in PATH
-if [ -d /usr/local/opt/openssl@1.1/bin ]; then
-    export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-fi
-
-# enable compilers and pkg-config to find Homebrew OpenSSL
-if [[ -d /usr/local/opt/openssl/lib && -d /usr/local/opt/openssl/include ]]; then
-   export LDFLAGS="-L/usr/local/opt/openssl/lib"
-   export CPPFLAGS="-I/usr/local/opt/openssl/include"
-   export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
-fi
-
-# ruby-build with homebrew's openssl & readline (suggested by brew info ruby-build)
-if command -v brew &> /dev/null
-then
-    export RUBY_CONFIGURE_OPTS=$RUBY_CONFIGURE_OPTS" --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl@3)"
-fi
-
-# autocompletions, from https://docs.brew.sh/Shell-Completion
 if type brew &>/dev/null; then
-  HOMEBREW_PREFIX="$(brew --prefix)"
-  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
-    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
-  else
-    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
-      [[ -r "$COMPLETION" ]] && source "$COMPLETION"
-    done
-  fi
-fi
+    OPENSSL_PREFIX=$(brew --prefix openssl@3)
 
-# don't update homebrew packages when I install another brew
-export HOMEBREW_NO_AUTO_UPDATE=1
+    # these openssl configs adapted from brew info openssl
+    # put Homebrew OpenSSL first in PATH
+    if [ -d /bin ]; then
+        export PATH="$OPENSSL_PREFIX/bin:$PATH"
+    fi
+
+    # enable compilers and pkg-config to find Homebrew OpenSSL
+    if [[ -d $OPENSSL_PREFIX/lib && -d $OPENSSL_PREFIX/include ]]; then
+        export LDFLAGS="-L$OPENSSL_PREFIX/lib"
+        export CPPFLAGS="-I$OPENSSL_PREFIX/include"
+        export PKG_CONFIG_PATH="$OPENSSL_PREFIX/lib/pkgconfig"
+    fi
+
+    # ruby-build with homebrew's openssl & readline (suggested by brew info ruby-build)
+    if command -v brew &> /dev/null
+    then
+        export RUBY_CONFIGURE_OPTS=$RUBY_CONFIGURE_OPTS" --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl@3)"
+    fi
+
+    # autocompletions, from https://docs.brew.sh/Shell-Completion
+    HOMEBREW_PREFIX="$(brew --prefix)"
+    if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+        source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+    else
+        for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+            [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+        done
+    fi
+
+    # don't update homebrew packages when I install another brew
+    export HOMEBREW_NO_AUTO_UPDATE=1
+fi
 
 # emacsclient
 export EDITOR=emacsclient
