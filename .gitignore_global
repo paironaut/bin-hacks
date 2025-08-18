@@ -65,6 +65,7 @@ Thumbs.db
 .\#*
 *emacs.desktop*
 .projectile
+.dir-locals.el
 
 # Disposable doc files #
 ########################
