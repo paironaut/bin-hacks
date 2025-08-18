@@ -450,6 +450,15 @@ if command -v ngrok &>/dev/null; then
     eval "$(ngrok completion)"
 fi
 
+###############
+# Android SDK #
+###############
+
+if type brew &>/dev/null; then
+    export ANDROID_HOME=$(brew --prefix)/share/android-commandlinetools
+fi
+
+
 ###########
 # aliases #
 ###########
